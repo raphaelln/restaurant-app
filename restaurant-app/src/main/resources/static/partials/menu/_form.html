@@ -1,0 +1,46 @@
+<form role="form">
+	<div class="form-group">
+		<label for="exampleInputEmail1">Restaurant</label> 
+		<select  class="col-sm-10 form-control" id="restaurants" ng-model="menu.restaurant.id">
+			<option value="">-- Select Restaurant --</option>
+			<option data-ng-repeat="restaurant in restaurants"
+				value="{{restaurant.id}}">{{restaurant.name}}</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="exampleInputEmail1">Itens</label>
+		<div class="panel panel-primary">
+		  <div class="panel-body">
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Product</th>
+						<th>Price</th>
+						<th>Content</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					 <tr ng-repeat="item in menu.items">
+		               <td>{{$index+1}}</td>
+		               <td><input class="form-control" ng-model="item.itemName" value="Item"  ng-required placeholder="Item name"></td>
+		               <td><input class="form-control" type="text" ng-currency ng-model="item.price" ng-required  size="6" placeholder="Unit Price"></td>
+		               <td><input class="form-control" ng-model="item.content" value="Item"  ng-required placeholder="Contents"></td>
+		               <td><a href ng-hide="printMode" ng-click="removeItem(item)" class="btn btn-danger"><i class="fa fa-trash-o"></i></a></td>
+		           </tr>
+		            <tr class="text-right">
+		               <td colspan="7"><a class="btn btn-primary" href ng-click="addItemRow(menu)" >Add Item</a></td>
+		           </tr>
+				</tbody>
+			</table>
+		  </div>
+		</div>
+	</div>	 
+	<div class="form-group">
+    	<button type="submit" class="top-buffer btn btn-primary" ladda="submitting" data-style="expand-right">
+			<span ng-show="submitting">Saving...</span>
+	    	<span ng-show="!submitting">Save</span>
+		</button> 
+	</div>  		
+</form>

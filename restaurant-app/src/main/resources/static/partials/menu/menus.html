@@ -1,0 +1,20 @@
+<table class="table table-striped table-bordered restauranttable" ng-controller="MenuListController">
+	<thead>
+	    <tr>
+	        <th>Menus</th>
+	        <th></th>
+	    </tr>
+	</thead>
+    <tr ng-repeat="menu in menus">
+        <td>Restaurant {{menu.restaurant.name}} menu</td>
+        <td class="text-right">
+  			<a class="btn btn-primary btn-sm" ng-href="#/menus/{{menu.id}}/view" >
+  				<i class="fa fa-eye "></i> View
+  			</a>
+        	<a class="btn btn-danger btn-sm" ng-click="showDeleteModal(menu)" >
+  				<i class="fa fa-trash-o"></i> Delete
+  			</a>
+        </td>
+    </tr>
+</table>
+<a href="#/menus/new" class="btn btn-primary nodecoration">New</a>

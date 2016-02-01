@@ -1,0 +1,29 @@
+<div ng-controller="MenuViewController">
+	<table class="table restauranttable">
+	    <tr>
+	        <td><h3>Details for {{menu.restaurant.name}} menu</h3></td>
+	        <td></td>
+	    </tr>
+	    <tr>
+	        <td>Restaurant Name</td>
+	        <td>{{menu.restaurant.name}}</td>
+	    </tr>
+	</table>
+	
+	<table class="table table-striped table-bordered restauranttable" ng-controller="RestaurantListController">
+		<thead>
+		    <tr>
+		        <th>Item</th>
+		        <th>Price</th>
+		    </tr>
+		</thead>
+	    <tr ng-repeat="item in menu.items">
+	        <td>{{item.itemName}}</td>
+	        <td>{{item.price | currency}}</td>
+	    </tr>
+	</table>
+
+	<div>
+	    <a class="btn btn-primary" ng-href="#/menus/{{menu.id}}/edit">Edit</a>
+	</div>
+</div>

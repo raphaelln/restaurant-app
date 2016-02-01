@@ -1,0 +1,15 @@
+<div ng-controller="RestaurantViewController">
+	<table class="table restauranttable">
+	    <tr>
+	        <td><h3>Details for {{restaurant.name}}</h3></td>
+	        <td></td>
+	    </tr>
+	    <tr>
+	        <td>Restaurant Name</td>
+	        <td>{{restaurant.name}}</td>
+	    </tr>
+	</table>
+	<div>
+	    <a class="btn btn-primary" ng-href="#/restaurants/{{restaurant.id}}/edit">Edit</a>
+	</div>
+</div>
